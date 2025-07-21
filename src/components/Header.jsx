@@ -44,10 +44,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                                 </button>
                             </div>
                             {
-                                isLoggedIn ? <button onClick={handleClick} type="button" className="text-white bg-red-700 hover:bg-red-600 ring-slate-200 focus:ring-1 font-medium rounded-lg text-sm px-9 py-2 text-center transition-all duration-300">Logout</button>
+                                isLoggedIn ? <button onClick={handleClick} type="button" className="text-white bg-[#f16470] hover:bg-[#e64855] ring-slate-200 focus:ring-1 font-medium rounded-sm text-sm px-9 py-2 text-center transition-all duration-300">Logout</button>
                                     : <button onClick={() => {
                                         navigate("/login")
-                                    }} type="button" className="text-white bg-green-700 hover:bg-green-600 ring-slate-200 focus:ring-1 font-medium rounded-lg text-sm px-9 py-2 text-center transition-all duration-300">Login</button>
+                                    }} type="button" className="text-white bg-[#ff5d22] hover:bg-[#e24d14] ring-slate-200 focus:ring-1 font-medium rounded-sm text-sm px-9 py-2 text-center transition-all duration-300">Login</button>
                             }
                         </div>
                     </div>
