@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom"
 
-const EmployeeTable = ({ employees, employeeDelete }) => {
+const EmployeeTable = ({ employees, employeeDelete, setEmployees }) => {
 
     const handleDelete = (id) =>{
         employeeDelete(id);
+    }
+
+    const handleSort = () => {
+        let sortArr = [...employees].sort((a, b) => {
+            return a.salary - b.salary;
+        })
+
+        setEmployees(sortArr);
     }
 
     return (
@@ -17,7 +25,7 @@ const EmployeeTable = ({ employees, employeeDelete }) => {
                         <th scope="col" className="px-6 py-3">
                             Employee Name
                         </th>
-                        <th scope="col" className="px-6 py-3">
+                        <th scope="col" className="px-6 py-3 cursor-pointer" onClick={handleSort}>
                             Salary
                         </th>
                         <th scope="col" className="px-6 py-3">

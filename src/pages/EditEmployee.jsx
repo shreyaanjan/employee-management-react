@@ -47,33 +47,49 @@ const EditEmployee = () => {
     }
 
     return (
-        <div className="container mx-auto pt-[100px]">
-            <h2 className="text-3xl font-semibold mb-5">Edit Employee</h2>
-            <form onSubmit={handleUpdate}>
-                <div className="grid gap-6 mb-6 md:grid-cols-2 items-center">
-                    <div>
-                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Employee Name</label>
-                        <input onChange={handleChange} value={input.name} type="text" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John" required />
-                    </div>
-                    <div>
-                        <label htmlFor="salary" className="block mb-2 text-sm font-medium text-gray-900">Salary</label>
-                        <input onChange={handleChange} value={input.salary} type="number" id="salary" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="₹5000" required />
-                    </div>
-                    <div>
-                        <label htmlFor="department" className="block mb-2 text-sm font-medium text-gray-900">Department</label>
-                        <select onChange={handleChange} value={input.department} id="department" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            <option value="">Choose a Department</option>
-                            <option value="1">Designing</option>
-                            <option value="2">Development</option>
-                            <option value="3">Finance</option>
-                            <option value="4">Sales And Marketing</option>
-                        </select>
-                    </div>
-                    <div>
-                        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-5">Update</button>
-                    </div>
+        <div className="min-h-screen flex items-center justify-center bg-[#fff7f1] px-4 pt-[60px]">
+            <div className="max-w-4xl w-full flex flex-col md:flex-row bg-white rounded-lg overflow-hidden shadow-lg">
+                <div className="md:w-1/2 w-full bg-[#fff7f1] flex items-center justify-center p-10">
+                    <img src="/images/edit.png" alt="Illustration" className="max-w-full h-auto" />
                 </div>
-            </form>
+                <div className="md:w-1/2 w-full bg-[#ff725e] p-10 text-white">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2">Edit Employee</h2>
+                    <p className="text-sm mb-6">Fill out the form below to update the employee information in the system</p>
+                    <form onSubmit={handleUpdate}>
+                        <div>
+                            <div className="mb-5">
+                                <label htmlFor="name" className="block mb-1 text-sm font-medium">Employee Name</label>
+                                <input onChange={handleChange} value={input.name} type="text"
+                                    id="name" placeholder="John"
+                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
+                            </div>
+                            <div className="mb-5">
+                                <label htmlFor="salary" className="block mb-1 text-sm font-medium">Salary</label>
+                                <input onChange={handleChange} value={input.salary}
+                                    type="number" id="salary" placeholder="₹5000"
+                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
+                            </div>
+                            <div className="mb-8">
+                                <label htmlFor="department" className="block mb-1 text-sm font-medium">Department</label>
+                                <select onChange={handleChange} value={input.department}
+                                    id="department" className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5">
+                                    <option value="">Choose a Department</option>
+                                    <option value="1">Designing</option>
+                                    <option value="2">Development</option>
+                                    <option value="3">Finance</option>
+                                    <option value="4">Sales And Marketing</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="submit"
+                                    className="w-full bg-white text-[#ff5d22] font-semibold py-2.5 rounded-md hover:bg-gray-100 transition-all">
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
