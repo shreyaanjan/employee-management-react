@@ -42,7 +42,7 @@ const EmployeeTable = ({ employees, employeeDelete, setEmployees }) => {
                             return <tr key={emp.id} className="border-b border-l border-r border-gray-300">
                                 <td scope="row" className="px-6 py-4 text-gray-900 whitespace-nowrap ">{idx + 1}</td>
                                 <td className="px-6 py-4 text-gray-900">{emp.name}</td>
-                                <td className="px-6 py-4 text-gray-900">{emp.salary}</td>
+                                <td className="px-6 py-4 text-gray-900">₹{Number(emp.salary).toLocaleString()}</td>
                                 <td className="px-6 py-4 text-gray-900">{emp.department == 1 ? "Designing" : emp.department == 2 ? "Development" : emp.department == 3 ? "Finance" : "Sales and Marketing"}</td>
                                 <td className="px-6 py-4 flex items-center gap-5">
                                     <Link to={`/edit-employee/${emp.id}`} className="text-base text-green-600"><i className="fa-solid fa-pen-to-square"></i></Link>

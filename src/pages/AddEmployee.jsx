@@ -57,7 +57,7 @@ const AddEmployee = () => {
                                     <option value="2">Development</option>
                                     <option value="3">Finance</option>
                                     <option value="4">Sales And Marketing</option>
-                                </select>  
+                                </select>
                             </div>
                             <div>
                                 <button type="submit"

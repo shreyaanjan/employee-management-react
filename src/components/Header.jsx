@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from "react-toastify"
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
+    const [menu, setMenu] = useState(false)
     const navigate = useNavigate();
 
     const { pathname } = useLocation();
@@ -18,7 +20,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <div className="container mx-auto">
                 <nav>
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                        <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse w-24 sm:w-32 md:w-40">
                             <img src="/images/logo.png" alt="logo" />
                         </Link>
                         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
@@ -35,15 +37,39 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                                 {isLoggedIn && (<Link to={"/employees"} className={`${pathname == "/employees" || pathname == "/add-employee" || pathname.includes("/edit-employee") ? "text-[#ff5d22]" : "text-[#221638]"}`}>Employees</Link>)}
                             </ul>
                         </div>
-                        {
-                            isLoggedIn ? <button onClick={handleClick} type="button" className="text-white bg-red-700 hover:bg-red-600 ring-slate-200 focus:ring-1 font-medium rounded-lg text-sm px-9 py-2 text-center transition-all duration-300">Logout</button>
-                                : <button onClick={() => {
-                                    navigate("/login")
-                                }} type="button" className="text-white bg-green-700 hover:bg-green-600 ring-slate-200 focus:ring-1 font-medium rounded-lg text-sm px-9 py-2 text-center transition-all duration-300">Login</button>
-                        }
+                        <div className="flex items-center gap-5">
+                            <div className="md:hidden">
+                                <button onClick={() => setMenu(!menu)} className="text-black text-2xl">
+                                    {menu ? '✕' : '☰'}
+                                </button>
+                            </div>
+                            {
+                                isLoggedIn ? <button onClick={handleClick} type="button" className="text-white bg-red-700 hover:bg-red-600 ring-slate-200 focus:ring-1 font-medium rounded-lg text-sm px-9 py-2 text-center transition-all duration-300">Logout</button>
+                                    : <button onClick={() => {
+                                        navigate("/login")
+                                    }} type="button" className="text-white bg-green-700 hover:bg-green-600 ring-slate-200 focus:ring-1 font-medium rounded-lg text-sm px-9 py-2 text-center transition-all duration-300">Login</button>
+                            }
+                        </div>
                     </div>
                 </nav>
             </div>
+
+            {menu && (
+                <div className="md:hidden fixed top-[72px] left-0 right-0 bottom-0 bg-white z-50 p-6 overflow-y-auto">
+                    <ul className="flex flex-col space-y-4 p-2 font-semibold">
+                        <li>
+                            <Link to={"/"} onClick={() => setMenu(false)} className={`${pathname == "/" ? "text-[#ff5d22]" : "text-[#221638]"}`}>Home</Link>
+                        </li>
+                        <li>
+                            <Link to={"/services"} onClick={() => setMenu(false)} className={`${pathname == "/services" ? "text-[#ff5d22]" : "text-[#221638]"}`}>Services</Link>
+                        </li>
+                        <li>
+                            <Link to={"/contact"} onClick={() => setMenu(false)} className={`${pathname == "/contact" ? "text-[#ff5d22]" : "text-[#221638]"}`}>Contact</Link>
+                        </li>
+                        {isLoggedIn && (<Link to={"/employees"} onClick={() => setMenu(false)} className={`${pathname == "/employees" || pathname == "/add-employee" || pathname.includes("/edit-employee") ? "text-[#ff5d22]" : "text-[#221638]"}`}>Employees</Link>)}
+                    </ul>
+                </div>
+            )}
         </header>
     )
 }
