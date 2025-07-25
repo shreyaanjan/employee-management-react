@@ -66,7 +66,15 @@ const Employees = () => {
                         </button>
                     </div>
                 </div>
-                <EmployeeTable employees={employees} setEmployees={setEmployees} employeeDelete={employeeDelete} />
+                {
+                    (employees.length !== 0 ? <EmployeeTable employees={employees} setEmployees={setEmployees} employeeDelete={employeeDelete} /> :
+                        <div>
+                            <div className='items-center flex justify-center'>
+                                <img src="/images/no-data.png" alt="no-data" className="w-[700px]" />
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </section>
     )
