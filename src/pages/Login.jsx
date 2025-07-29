@@ -37,7 +37,7 @@ const Login = ({ setIsLoggedIn }) => {
                                 Username or email
                             </label>
                             <input onChange={handleChange} type="email" name="email" id="email"
-                                placeholder="Username or email" className="bg-gray-100 border border-gray-200 text-gray-900 text-sm rounded-sm block w-full p-3 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                                placeholder="name@mail.com" className="bg-gray-100 border border-gray-200 text-gray-900 text-sm rounded-sm block w-full p-3 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                         </div>
                         <div>
                             <label htmlFor="password" className="block mb-1 text-sm font-semibold text-gray-900">
@@ -47,7 +47,7 @@ const Login = ({ setIsLoggedIn }) => {
                                 type="password"
                                 name="password"
                                 id="password"
-                                placeholder="Password"
+                                placeholder="********"
                                 className="bg-gray-100 border border-gray-200 text-gray-900 text-sm rounded-sm block w-full p-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
                             />
                         </div>
