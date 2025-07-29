@@ -10,7 +10,6 @@ const EmployeeTable = ({ employees, employeeDelete, setEmployees }) => {
         let sortArr = [...employees].sort((a, b) => {
             return a.salary - b.salary;
         })
-
         setEmployees(sortArr);
     }
 

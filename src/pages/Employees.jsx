@@ -4,25 +4,17 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 const Employees = () => {
-    const navigate = useNavigate();
     const [employees, setEmployees] = useState([]);
     const [searchEmp, setSearchEmp] = useState([]);
     const [search, setSearch] = useState({ name: "", department: "" });
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("employees")) || [];
         setEmployees(data);
         setSearchEmp(data);
     }, []);
-
-    const employeeDelete = (id) => {
-        const updatedEmployee = employees.filter((emp) => {
-            return emp.id !== id;
-        })
-        setEmployees(updatedEmployee);
-        localStorage.setItem("employees", JSON.stringify(updatedEmployee));
-        toast.success("Employee Deleted Successfully !");
-    }
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -44,6 +36,15 @@ const Employees = () => {
         setEmployees(searchArr)
     }
 
+    const employeeDelete = (id) => {
+        const updatedEmployee = employees.filter((emp) => {
+            return emp.id !== id;
+        })
+        setEmployees(updatedEmployee);
+        localStorage.setItem("employees", JSON.stringify(updatedEmployee));
+        toast.success("Employee Deleted Successfully !");
+    }
+    
     return (
         <section className="pt-[93px] bg-[#f9fafb] min-h-screen">
             <div className="container mx-auto px-4">

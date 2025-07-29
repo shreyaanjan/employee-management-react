@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddEmployee = () => {
-    const navigate = useNavigate();
-
     const [input, setInput] = useState({
         name: "", salary: "", department: "",
     })
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setInput({ ...input, [e.target.id]: e.target.value })
@@ -22,7 +22,6 @@ const AddEmployee = () => {
         localStorage.setItem("employees", JSON.stringify(employees));
         setInput({ name: "", salary: "", department: "" })
         navigate("/employees");
-        console.log(employees);
     }
 
     return (

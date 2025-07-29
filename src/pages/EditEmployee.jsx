@@ -3,13 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 const EditEmployee = () => {
-    const navigate = useNavigate();
-    const { id } = useParams()
-    console.log(id);
-
     const [input, setInput] = useState({
         name: "", salary: "", department: "",
     })
+
+    const navigate = useNavigate();
+    const { id } = useParams()
 
     useEffect(() => {
         const employees = JSON.parse(localStorage.getItem("employees")) || [];
@@ -37,12 +36,12 @@ const EditEmployee = () => {
         const updatedEmp = employees.map((emp) => {
             return emp.id == id ? {
                 ...emp, ...input
-            } : emp 
+            } : emp
         })
 
         localStorage.setItem("employees", JSON.stringify(updatedEmp));
         toast.success("Data Updated Successfully !");
-        setInput({name: "", salary: "", department: ""});
+        setInput({ name: "", salary: "", department: "" });
         navigate("/employees");
     }
 
@@ -61,7 +60,7 @@ const EditEmployee = () => {
                                 <label htmlFor="name" className="block mb-1 text-sm font-medium">Employee Name</label>
                                 <input onChange={handleChange} value={input.name} type="text"
                                     id="name" placeholder="John"
-                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" required/>
+                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" required />
                             </div>
                             <div className="mb-5">
                                 <label htmlFor="salary" className="block mb-1 text-sm font-medium">Salary</label>
