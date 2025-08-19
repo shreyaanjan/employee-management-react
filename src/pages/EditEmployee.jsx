@@ -36,7 +36,7 @@ const EditEmployee = () => {
             toast.error("Enter All Details Correctly !")
             return;
         }
-        
+
         const employees = JSON.parse(localStorage.getItem("employees")) || [];
         const updatedEmp = employees.map((emp) => {
             return emp.id == id ? {
@@ -65,18 +65,18 @@ const EditEmployee = () => {
                                 <label htmlFor="name" className="block mb-1 text-sm font-medium">Employee Name</label>
                                 <input onChange={handleChange} value={input.name} type="text"
                                     id="name" placeholder="John"
-                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" required />
+                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
                             </div>
                             <div className="mb-5">
                                 <label htmlFor="salary" className="block mb-1 text-sm font-medium">Salary</label>
                                 <input onChange={handleChange} value={input.salary}
                                     type="number" id="salary" placeholder="₹5000"
-                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" required />
+                                    className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
                             </div>
                             <div className="mb-8">
                                 <label htmlFor="department" className="block mb-1 text-sm font-medium">Department</label>
                                 <select onChange={handleChange} value={input.department}
-                                    id="department" className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" required>
+                                    id="department" className="bg-white border border-gray-300 text-gray-800 text-sm rounded-md focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5">
                                     <option value="">Choose a Department</option>
                                     <option value="1">Designing</option>
                                     <option value="2">Development</option>
