@@ -32,6 +32,11 @@ const EditEmployee = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
 
+        if (input.name.trim() == "" || input.salary.trim() == "" || input.department.trim() == "") {
+            toast.error("Enter All Details Correctly !")
+            return;
+        }
+        
         const employees = JSON.parse(localStorage.getItem("employees")) || [];
         const updatedEmp = employees.map((emp) => {
             return emp.id == id ? {
